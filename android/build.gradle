@@ -1,3 +1,5 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
 buildscript {
     ext {
         buildToolsVersion = "36.0.0"
@@ -19,3 +21,17 @@ buildscript {
 }
 
 apply plugin: "com.facebook.react.rootproject"
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        
+        maven {
+            url "$rootDir/../node_modules/@react-native-async-storage/async-storage/android/local_repo"
+        }
+        maven {
+            url("$rootDir/../node_modules/react-native/android")
+        }
+    }
+}
